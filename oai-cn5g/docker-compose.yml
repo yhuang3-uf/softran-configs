@@ -150,6 +150,16 @@ services:
         networks:
             public_net:
                 ipv4_address: 192.168.70.135
+    oai-lmf:
+        container_name: oai-lmf
+        image: oaisoftwarealliance/oai-lmf
+        environment:
+            - TZ=Europe/Paris
+        depends_on:
+            - oai-amf
+        networks:
+            public_net:
+                ipv4_address: 192.168.70.140
 
 networks:
     public_net:
