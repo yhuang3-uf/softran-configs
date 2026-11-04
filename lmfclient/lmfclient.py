@@ -18,16 +18,15 @@ def main(argv: list[str]) -> int:
     config_file.read(str(parsedargs["config_file"]))
 
     lmf_api_base: str = config_file["lmf"]["apibase"]
-    lmf_session: httpx.Client = httpx.AsyncClient(http2=True)
-    lmf_result: httpx.Response = await lmf_session.post(
-        lmf_api_base + "/nlmf-loc/v1/determine-location",
-        json={
-            "supi": "imsi-208950000000131",
-        },
-    )
-    print(f"Got HTTP {lmf_result.status_code}")
-    print(lmf_result.text)
-    lmf_session.close()
+    async with httpx.AsyncClient(http2=True) as lmf_session:
+        lmf_result: httpx.Response = await lmf_session.post(
+            lmf_api_base + "/nlmf-loc/v1/determine-location",
+            json={
+                "supi": "imsi-208950000000131",
+            },
+        )
+        print(f"Got HTTP {lmf_result.status_code}")
+        print(lmf_result.text)
 
     return 0
 
