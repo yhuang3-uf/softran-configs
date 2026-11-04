@@ -1,6 +1,12 @@
 # softran-configs
 Configuration files for various software RANs.
 
+## Directories
+ * `lmfclient` - Client for the LMF
+ * `oai-cn5g` - 5G core (working)
+ * `oai-ran` - 5G RAN and UE (not currently working)
+
+
 Some of the files in this repository are based on third-party projects,
 which are listed under the [#LICENSE](#LICENSE) section below.
 
