@@ -168,5 +168,6 @@ networks:
         ipam:
             config:
                 - subnet: 192.168.70.128/26
+                  gateway: 192.168.70.129
         driver_opts:
             com.docker.network.bridge.name: "demo-oai"
